@@ -1,5 +1,9 @@
 # Additional packages
 
+# Bootanimation
+PRODUCT_PACKAGES += \
+    bootanimation.zip
+
 # Include explicitly to work around GMS issues
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
@@ -22,11 +26,13 @@ PRODUCT_PACKAGES += \
 
 # Additional apps
 PRODUCT_PACKAGES += \
-    Launcher3 \
-    Quarks \
+    SearchLauncherQuickStep \
+    Jelly \
     OmniStyle \
     VanillaMusic \
-    CarbonDelta
+    CarbonDelta \
+    SimpleGallery \
+    WeatherClient
 
 # Turbo
 PRODUCT_PACKAGES += \
@@ -63,18 +69,20 @@ PRODUCT_PACKAGES += \
     mkfs.exfat
 endif
 
-# Stagefright FFMPEG plugin
-PRODUCT_PACKAGES += \
-    libffmpeg_extractor \
-    libffmpeg_omx \
-    media_codecs_ffmpeg.xml
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    media.sf.omx-plugin=libffmpeg_omx.so \
-    media.sf.extractor-plugin=libffmpeg_extractor.so
-
 # Permissions
 PRODUCT_PACKAGES += \
     privapp-permissions-carbon.xml
+
+# Exempt DeskClock from Powersave
+PRODUCT_PACKAGES += \
+    deskclock.xml
+
+# Backup Services whitelist
+PRODUCT_PACKAGES += \
+    backup.xml
+
+# Hidden API whitelist
+PRODUCT_PACKAGES += \
+    carbon-hiddenapi-package-whitelist.xml
 
 -include vendor/qcom/perf/packages.mk

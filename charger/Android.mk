@@ -22,10 +22,6 @@ LOCAL_C_INCLUDES := \
     system/core/healthd/include \
     system/core/base/include \
     bootable/recovery/minui/include
-
-LOCAL_SHARED_LIBRARIES := libbase libpng
-LOCAL_WHOLE_STATIC_LIBRARIES := libminui
-
 ifneq ($(BACKLIGHT_PATH),)
     LOCAL_CFLAGS += -DHEALTHD_BACKLIGHT_PATH=\"$(BACKLIGHT_PATH)\"
 endif
@@ -35,9 +31,6 @@ endif
 ifneq ($(HEALTHD_BACKLIGHT_LEVEL),)
     LOCAL_CFLAGS += -DHEALTHD_BACKLIGHT_LEVEL=$(HEALTHD_BACKLIGHT_LEVEL)
 endif
-LOCAL_STATIC_LIBRARIES := \
-    libbase \
-    libminui
 include $(BUILD_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
